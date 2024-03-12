@@ -5,6 +5,13 @@
 
 #define AA_FONT_LARGE NotoSansBold36
 
+// **********************************************************************************
+// i have foolishly been inconsistant with regards to which output i'm using across the installation 
+// so check this carefully in code and on the board
+// i have added a hard off to the screen not being used so that it doesn't work if wrong
+
+// BirdFacts 2 uses the screen 2 connection. 
+
 #define Screen1_CS 21 
 #define Screen2_CS 22
 
@@ -39,7 +46,7 @@ void setup(void)
 
   tft.begin();
 
-  tft.setRotation(2);
+  tft.setRotation(0);
 
   spr1.setColorDepth(16); // 16 bit colour needed to show antialiased fonts
 
@@ -77,7 +84,8 @@ void writeScreen(int element) {
 
   spr1.setTextWrap(false);
 
-  digitalWrite(Screen1_CS, SCREENON);
+  digitalWrite(Screen1_CS, SCREENOFF);
+  digitalWrite(Screen2_CS, SCREENON);
 
   spr1.createSprite(width, spriteHeight);   // Create a sprite 100 pixels wide and 50 high
 
