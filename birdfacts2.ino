@@ -8,7 +8,7 @@
 // **********************************************************************************
 // i have foolishly been inconsistant with regards to which output i'm using across the installation 
 // so check this carefully in code and on the board
-// i have added a hard off to the screen not being used so that it doesn't work if wrong
+// i have added a hard off to the screen connection not being used so that it doesn't work if wrong
 
 // BirdFacts 2 uses the screen 2 connection. 
 
