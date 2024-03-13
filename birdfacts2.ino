@@ -6,11 +6,9 @@
 #define AA_FONT_LARGE NotoSansBold36
 
 // **********************************************************************************
-// i have foolishly been inconsistant with regards to which output i'm using across the installation 
-// so check this carefully in code and on the board
-// i have added a hard off to the screen connection not being used so that it doesn't work if wrong
-
-// BirdFacts 2 uses the screen 2 connection. 
+// **********************************************************************************
+// i have been inconsistant with regards to which output i'm using across the installation 
+// so i have enabled both screens so it doesn't matter which connection is used
 
 #define Screen1_CS 21 
 #define Screen2_CS 22
@@ -33,7 +31,7 @@ LGFX_Sprite spr1(&tft);
 int currentElement = 0;
 int lastElement = NUMBER_OF_ELEMENTS;
 int textDelay = 500; // delay time between facts
-float textSpeed = 2.0; // Iteration speed of loop of text. 1 is slowest.
+int textSpeed = 2; // Iteration speed of loop of text. 1 is slowest.
 
 void setup(void)
 {
@@ -84,7 +82,7 @@ void writeScreen(int element) {
 
   spr1.setTextWrap(false);
 
-  digitalWrite(Screen1_CS, SCREENOFF);
+  digitalWrite(Screen1_CS, SCREENON);
   digitalWrite(Screen2_CS, SCREENON);
 
   spr1.createSprite(width, spriteHeight);   // Create a sprite 100 pixels wide and 50 high
